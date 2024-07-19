@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/down.png</file>
+        <file>Image/down_hover.png</file>
+        <file>Image/GIF.gif</file>
+        <file>Image/guanbi.png</file>
+        <file>Image/guanbi_hover.png</file>
+        <file>Image/guanbi_pressed.png</file>
+        <file>Image/jianpan.png</file>
+        <file>Image/jianpan_hover.png</file>
+        <file>Image/login.png</file>
+        <file>Image/login_hover.png</file>
+        <file>Image/login_pressed.png</file>
+        <file>Image/password.png</file>
+        <file>Image/password_hover.png</file>
+        <file>Image/up.png</file>
+        <file>Image/user.png</file>
+        <file>Image/user_hover.png</file>
+        <file>Image/zuixiaohua.png</file>
+        <file>Image/zuixiaohua_hover.png</file>
+    </qresource>
+</RCC>
