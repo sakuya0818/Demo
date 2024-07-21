@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resouce/data.txt</file>
+        <file>Resouce/heart.ico</file>
+    </qresource>
+</RCC>
