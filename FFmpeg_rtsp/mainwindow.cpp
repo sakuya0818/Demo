@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    this->setWindowIcon(QIcon(":/Resource/heart.ico"));
     ui->lineEdit_url->setText(url);
 }
 

@@ -42,3 +42,6 @@ LIBS += $$PWD/lib/avcodec.lib \
         $$PWD/lib/postproc.lib \
         $$PWD/lib/swresample.lib \
         $$PWD/lib/swscale.lib
+
+RESOURCES += \
+    Res.qrc
