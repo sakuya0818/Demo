@@ -8,11 +8,17 @@
 
 一个用Qt写的自定义的登录界面。
 
-![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/GIF.gif)
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/Login.gif)
 
 3.ColorMap
 
-在Qt中使用开源控件QCustomPlot画一个色阶图，并且可以在色阶图上显示文字、圆和线段
+在Qt中使用开源控件QCustomPlot画一个色阶图，并且可以在色阶图上显示文字、圆和线段。
 
 ![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/ColorMap.png)
+
+4.TreeViewSearch
+
+QTreeView使用示例，并可以模糊查询。
+
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/TreeViewSearch.gif)
 
