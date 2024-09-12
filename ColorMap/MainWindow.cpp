@@ -73,10 +73,6 @@ void MainWindow::initWindow()
     colorScale->setType(QCPAxis::atRight);
     // 设置色带右侧的名字
     colorScale->axis()->setLabel("Strength Value");
-    // 色条使用的颜色渐变
-    QCPColorGradient gradient;
-    gradient.setColorStopAt(0.0, QColor("#f6efa6"));   // 设置色条开始时的颜色
-    gradient.setColorStopAt(1.0, QColor("#bf444c"));   // 设置色条结束时的颜色
     // 将其添加到主轴矩形的右侧
     ui->customPlot->plotLayout()->addElement(0, 1, colorScale);
     // 使用插值，界面不显示小方块(默认是禁用的)
