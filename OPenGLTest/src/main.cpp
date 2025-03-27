@@ -10,6 +10,7 @@ Shader* shader = nullptr;
 Texture* texture = nullptr;
 Texture* texture1 = nullptr;
 glm::mat4 transform(1.0);
+glm::mat4 viewMatrix(1.0);
 
 void OnResize(int width, int height)
 {
@@ -43,6 +44,7 @@ void doScaleTransform()
 	transform = glm::scale(glm::identity<glm::mat4>(), glm::vec3(0.5f, 0.5f, 1.0f));
 }
 
+// 旋转和平移变换结合
 void doTransform()
 {
 	glm::mat4 rotateMat = glm::rotate(glm::identity<glm::mat4>(), glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
@@ -50,6 +52,7 @@ void doTransform()
 	transform = translateMat * rotateMat;
 }
 
+// 准备SingleBuffer数据
 void prepareSingleBuffer()
 {
 	float positions[] = {
@@ -120,6 +123,7 @@ void prepareSingleBuffer()
 	glBindVertexArray(0);
 }
 
+// 准备InterleavedBuffer数据
 void prepareInterleavedBuffer()
 {
 	float vertices[] = {
@@ -150,17 +154,26 @@ void prepareInterleavedBuffer()
 	glBindVertexArray(0);
 }
 
+// 准备Shader
 void prepareShader()
 {
 	shader = new Shader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 }
 
+// 准备Texture
 void prepareTexture()
 {
 	texture = new Texture("assets/textures/pikaqiu.jpg", 0);
 	texture1 = new Texture("assets/textures/111.jpg", 1);
 }
 
+// 准备相机
+void prepareCamera()
+{
+	viewMatrix = glm::lookAt(glm::vec3(0.0f, 0.0f, 0.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+}
+
+// 渲染
 void render()
 {
 	// 画布清理
@@ -173,6 +186,7 @@ void render()
 	shader->setInt("sampler1", 1);
 
 	shader->setMatrix4x4("transform", transform);
+	shader->setMatrix4x4("view", viewMatrix);
 
 	// 绑定当前的vao
 	glBindVertexArray(vao);
@@ -203,8 +217,7 @@ int main()
 	prepareShader();
 	prepareSingleBuffer();
 	prepareTexture();
-
-	doTransform();
+	prepareCamera();
 
 	// 执行窗体循环
 	while (Application::getInstance()->update())

@@ -7,11 +7,12 @@ out vec3 myColor;
 out vec2 uv;
 
 uniform mat4 transform;
+uniform mat4 view;
 
 void main()
 {
 	vec4 position = vec4(aPos, 1.0);
-	position = transform * position;
+	position = view * transform * position;
 	gl_Position = position;
 	//gl_Position = vec4(aPos, 1.0);
 	myColor = aColor;
