@@ -11,6 +11,7 @@ Texture* texture = nullptr;
 Texture* texture1 = nullptr;
 glm::mat4 transform(1.0);
 glm::mat4 viewMatrix(1.0);
+glm::mat4 orthoMatrix(1.0);
 
 void OnResize(int width, int height)
 {
@@ -171,6 +172,14 @@ void prepareTexture()
 void prepareCamera()
 {
 	viewMatrix = glm::lookAt(glm::vec3(0.0f, 0.0f, 0.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+	std::cout << "111111111111111:" << glm::to_string(viewMatrix) << std::endl;
+}
+
+void prepareOrtho()
+{
+	orthoMatrix = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 2.0f, -2.0f);
+	std::cout << "222222222222222:" << glm::to_string(orthoMatrix) << std::endl;
 }
 
 // 渲染
@@ -187,6 +196,7 @@ void render()
 
 	shader->setMatrix4x4("transform", transform);
 	shader->setMatrix4x4("view", viewMatrix);
+	shader->setMatrix4x4("projection", orthoMatrix);
 
 	// 绑定当前的vao
 	glBindVertexArray(vao);
@@ -218,6 +228,7 @@ int main()
 	prepareSingleBuffer();
 	prepareTexture();
 	prepareCamera();
+	prepareOrtho();
 
 	// 执行窗体循环
 	while (Application::getInstance()->update())
