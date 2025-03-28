@@ -12,6 +12,7 @@ Texture* texture1 = nullptr;
 glm::mat4 transform(1.0);
 glm::mat4 viewMatrix(1.0);
 glm::mat4 orthoMatrix(1.0);
+glm::mat4 perspectiveMatrix(1.0);
 
 void OnResize(int width, int height)
 {
@@ -171,15 +172,24 @@ void prepareTexture()
 // 准备相机
 void prepareCamera()
 {
-	viewMatrix = glm::lookAt(glm::vec3(0.0f, 0.0f, 0.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-
+	viewMatrix = glm::lookAt(glm::vec3(0.0f, 2.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	std::cout << "111111111111111:" << glm::to_string(viewMatrix) << std::endl;
 }
 
 void prepareOrtho()
 {
-	orthoMatrix = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 2.0f, -2.0f);
+	// 正交投影矩阵
+	// left:左边界，right:右边界，bottom:底边界，top:顶边界，near:近裁剪面，far:远裁剪面
+	orthoMatrix = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.1f, 100.0f);
 	std::cout << "222222222222222:" << glm::to_string(orthoMatrix) << std::endl;
+}
+
+void preparePerspective()
+{
+	// 透视投影矩阵
+	// fovy:y轴的视野角度，aspect:宽高比，near:近裁剪面，far:远裁剪面
+	perspectiveMatrix = glm::perspective(glm::radians(60.0f), (float)Application::getInstance()->getWidth() / (float)Application::getInstance()->getHeight(), 0.1f, 100.0f);
+	std::cout << "333333333333333:" << glm::to_string(perspectiveMatrix) << std::endl;
 }
 
 // 渲染
@@ -196,7 +206,7 @@ void render()
 
 	shader->setMatrix4x4("transform", transform);
 	shader->setMatrix4x4("view", viewMatrix);
-	shader->setMatrix4x4("projection", orthoMatrix);
+	shader->setMatrix4x4("projection", perspectiveMatrix);
 
 	// 绑定当前的vao
 	glBindVertexArray(vao);
@@ -228,7 +238,7 @@ int main()
 	prepareSingleBuffer();
 	prepareTexture();
 	prepareCamera();
-	prepareOrtho();
+	preparePerspective();
 
 	// 执行窗体循环
 	while (Application::getInstance()->update())
