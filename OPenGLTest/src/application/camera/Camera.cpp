@@ -16,3 +16,8 @@ glm::mat4 Camera::getViewMatrix()
 
 	return viewMatrix;
 }
+
+glm::mat4 Camera::getProjectionMatrix()
+{
+	return glm::identity<glm::mat4>();
+}
