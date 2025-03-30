@@ -49,7 +49,9 @@ bool Application::init(const int& width, const int& height)
 
 	// 设置监听窗口大小变化和按键回调
 	glfwSetFramebufferSizeCallback(mWindow, frameBufferSizeCallback);
-	glfwSetKeyCallback(mWindow, keyCallBack);
+	glfwSetKeyCallback(mWindow, keyCallback);
+	glfwSetMouseButtonCallback(mWindow, mouseCallback);
+	glfwSetCursorPosCallback(mWindow, cursorCallback);
 
 	glfwSetWindowUserPointer(mWindow, this);
 
@@ -86,11 +88,29 @@ void Application::frameBufferSizeCallback(GLFWwindow* window, int width, int hei
 	}
 }
 
-void Application::keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods)
+void Application::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	Application* self = (Application*)glfwGetWindowUserPointer(window);
 	if (self->mKeyBoardCallback != nullptr)
 	{
 		self->mKeyBoardCallback(key, action, mods);
+	}
+}
+
+void Application::mouseCallback(GLFWwindow* window, int button, int action, int mods)
+{
+	Application* self = (Application*)glfwGetWindowUserPointer(window);
+	if (self->mMouseCallback != nullptr)
+	{
+		self->mMouseCallback(button, action, mods);
+	}
+}
+
+void Application::cursorCallback(GLFWwindow* window, double xPos, double yPos)
+{
+	Application* self = (Application*)glfwGetWindowUserPointer(window);
+	if (self->mCursorCallback != nullptr)
+	{
+		self->mCursorCallback(xPos, yPos);
 	}
 }

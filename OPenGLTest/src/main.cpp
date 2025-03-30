@@ -28,6 +28,16 @@ void OnKeyBoard(int key, int action, int mods)
 	}
 }
 
+void OnMouse(int button, int action, int mods)
+{
+	std::cout << "鼠标点击：" << button << std::endl;
+}
+
+void OnCursor(double xPos, double yPos)
+{
+	std::cout << "鼠标移动：" << xPos << "," << yPos << std::endl;
+}
+
 // 旋转变化
 void doRotationTransform()
 {
@@ -232,6 +242,8 @@ int main()
 	// 设置监听窗口大小变化和按键回调
 	Application::getInstance()->setResizeCallback(OnResize);
 	Application::getInstance()->setKeyBoardCallback(OnKeyBoard);
+	Application::getInstance()->setMouseCallback(OnMouse);
+	Application::getInstance()->setCursorCallback(OnCursor);
 
 	// 准备Shader和vao，vbo
 	prepareShader();
