@@ -17,6 +17,7 @@ set(GLAD_SOURCES
 
 set(APPLICATION_SOURCES
     src/application/Application.cpp
+    src/application/camera/Camera.cpp
 )
 
 set(GLFRAMEWORK_SOURCES
