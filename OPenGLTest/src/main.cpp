@@ -4,6 +4,8 @@
 #include "glframework/shader.h"
 #include "glframework/texture.h"
 #include "application/Application.h"
+#include "application/camera/PerspectiveCamera.h"
+#include "application/camera/CameraControl.h"
 
 GLuint vao;
 Shader* shader = nullptr;
@@ -14,28 +16,30 @@ glm::mat4 viewMatrix(1.0);
 glm::mat4 orthoMatrix(1.0);
 glm::mat4 perspectiveMatrix(1.0);
 
+PerspectiveCamera* camera = nullptr;
+CameraControl* cameraControl = nullptr;
+
 void OnResize(int width, int height)
 {
 	std::cout << "窗体大小:" << width << height << std::endl;
 	glViewport(0, 0, width, height);
 }
 
-void OnKeyBoard(int key, int action, int mods)
+void OnKey(int key, int action, int mods)
 {
-	if (key == GLFW_KEY_W)
-	{
-		std::cout << "按下：" << key << std::endl;
-	}
+	cameraControl->onKey(key, action, mods);
 }
 
 void OnMouse(int button, int action, int mods)
 {
-	std::cout << "鼠标点击：" << button << std::endl;
+	double x, y;
+	Application::getInstance()->getCursorPosition(&x, &y);
+	cameraControl->onMouse(button, action, x, y);
 }
 
 void OnCursor(double xPos, double yPos)
 {
-	std::cout << "鼠标移动：" << xPos << "," << yPos << std::endl;
+	cameraControl->onCursor(xPos, yPos);
 }
 
 // 旋转变化
@@ -182,6 +186,11 @@ void prepareTexture()
 // 准备相机
 void prepareCamera()
 {
+	camera = new PerspectiveCamera(60.0f, (float)Application::getInstance()->getWidth() / (float)Application::getInstance()->getHeight(), 0.1f, 100.0f);
+
+	cameraControl = new CameraControl();
+	cameraControl->setCamera(camera);
+
 	viewMatrix = glm::lookAt(glm::vec3(0.0f, 2.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	std::cout << "111111111111111:" << glm::to_string(viewMatrix) << std::endl;
 }
@@ -241,7 +250,7 @@ int main()
 
 	// 设置监听窗口大小变化和按键回调
 	Application::getInstance()->setResizeCallback(OnResize);
-	Application::getInstance()->setKeyBoardCallback(OnKeyBoard);
+	Application::getInstance()->setKeyBoardCallback(OnKey);
 	Application::getInstance()->setMouseCallback(OnMouse);
 	Application::getInstance()->setCursorCallback(OnCursor);
 
@@ -255,6 +264,7 @@ int main()
 	// 执行窗体循环
 	while (Application::getInstance()->update())
 	{
+		cameraControl->update();
 		render();
 	}
 

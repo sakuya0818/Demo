@@ -23,6 +23,8 @@ public:
 	uint32_t getWidth() const { return mWidth; }
 	uint32_t getHeight() const { return mHeight; }
 
+	void getCursorPosition(double* x, double* y);
+
 	void setResizeCallback(ResizeCallback callback) { mResizeCallback = callback; }
 	void setKeyBoardCallback(KeyBoardCallback callback) { mKeyBoardCallback = callback; }
 	void setMouseCallback(MouseCallback callback) { mMouseCallback = callback; }

@@ -79,6 +79,11 @@ void Application::destory()
 	glfwTerminate();
 }
 
+void Application::getCursorPosition(double* x, double* y)
+{
+	glfwGetCursorPos(mWindow, x, y);
+}
+
 void Application::frameBufferSizeCallback(GLFWwindow* window, int width, int height)
 {
 	Application* self = (Application*)glfwGetWindowUserPointer(window);

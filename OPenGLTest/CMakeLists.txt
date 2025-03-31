@@ -20,6 +20,7 @@ set(APPLICATION_SOURCES
     src/application/camera/Camera.cpp
     src/application/camera/OrthographicCamera.cpp
     src/application/camera/PerspectiveCamera.cpp
+    src/application/camera/CameraControl.cpp
 )
 
 set(GLFRAMEWORK_SOURCES
