@@ -21,6 +21,7 @@ set(APPLICATION_SOURCES
     src/application/camera/OrthographicCamera.cpp
     src/application/camera/PerspectiveCamera.cpp
     src/application/camera/CameraControl.cpp
+    src/application/camera/TrackBallController.cpp
 )
 
 set(GLFRAMEWORK_SOURCES
