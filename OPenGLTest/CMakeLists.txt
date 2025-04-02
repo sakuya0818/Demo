@@ -22,6 +22,7 @@ set(APPLICATION_SOURCES
     src/application/camera/PerspectiveCamera.cpp
     src/application/camera/CameraControl.cpp
     src/application/camera/TrackBallController.cpp
+    src/application/camera/GameCameraControl.cpp
 )
 
 set(GLFRAMEWORK_SOURCES

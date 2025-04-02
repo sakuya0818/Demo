@@ -10,9 +10,8 @@ public:
 	~TrackBallController();
 
 	void onCursor(double xPos, double yPos) override;
-	void onKey(int key, int action, int mods) override;
+
 	void onScroll(double offset) override;
-	void update() override;
 
 private:
 	void pitch(float angle);

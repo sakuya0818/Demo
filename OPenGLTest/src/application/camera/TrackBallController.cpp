@@ -36,17 +36,9 @@ void TrackBallController::onCursor(double xPos, double yPos)
 	mCurrentY = yPos;
 }
 
-void TrackBallController::onKey(int key, int action, int mods)
-{
-}
-
 void TrackBallController::onScroll(double offset)
 {
 	mCamera->scale(mScaleSpeed * offset);
-}
-
-void TrackBallController::update()
-{
 }
 
 void TrackBallController::pitch(float angle)
