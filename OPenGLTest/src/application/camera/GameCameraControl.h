@@ -11,6 +11,10 @@ public:
 
 	void onCursor(double xPos, double yPos) override;
 
+	void update() override;
+
+	void setSpeed(float speed) { mSpeed = speed; }
+
 private:
 	void pitch(float angle);
 
@@ -18,4 +22,5 @@ private:
 
 private:
 	float mPitch = 0.0f;
+	float mSpeed = 0.1f;
 };

@@ -23,6 +23,39 @@ void GameCameraControl::onCursor(double xPos, double yPos)
 	mCurrentY = yPos;
 }
 
+void GameCameraControl::update()
+{
+	glm::vec3 dirction(0.0f);
+
+	auto front = glm::cross(mCamera->mUp, mCamera->mRight);
+	auto right = mCamera->mRight;
+
+	if (mKeyMap[GLFW_KEY_W])
+	{
+		dirction += front;
+	}
+	if (mKeyMap[GLFW_KEY_S])
+	{
+		dirction -= front;
+	}
+	if (mKeyMap[GLFW_KEY_A])
+	{
+		dirction += right;
+	}
+	if (mKeyMap[GLFW_KEY_D])
+	{
+		dirction -= right;
+	}
+
+	// 此时dirction可能长度不为1，需要归一化
+	// 也可能为0，此时不需要移动
+	if (glm::length(dirction) != 0.0f)
+	{
+		dirction = glm::normalize(dirction);
+		mCamera->mPosition += dirction * mSpeed;
+	}
+}
+
 void GameCameraControl::pitch(float angle)
 {
 	mPitch += angle;
