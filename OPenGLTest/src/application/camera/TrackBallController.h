@@ -11,11 +11,14 @@ public:
 
 	void onCursor(double xPos, double yPos) override;
 	void onKey(int key, int action, int mods) override;
-	void onScroll(double xOffset, double yOffset) override;
+	void onScroll(double offset) override;
 	void update() override;
 
 private:
 	void pitch(float angle);
 
 	void yaw(float angle);
+
+private:
+	float mMoveSpeed = 0.005f;
 };

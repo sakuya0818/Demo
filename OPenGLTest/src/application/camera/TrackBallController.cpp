@@ -12,8 +12,6 @@ TrackBallController::~TrackBallController()
 
 void TrackBallController::onCursor(double xPos, double yPos)
 {
-	std::cout << "TrackBallController::onCursor" << std::endl;
-
 	if (mLeftMouseDown)
 	{
 		// 调整相机的各类参数
@@ -25,6 +23,14 @@ void TrackBallController::onCursor(double xPos, double yPos)
 		pitch(-deltaY);
 		yaw(-deltaX);
 	}
+	else if (mRightMouseDown)
+	{
+		// 平移
+		float deltaX = (xPos - mCurrentX) * mMoveSpeed;
+		float deltaY = (yPos - mCurrentY) * mMoveSpeed;
+		mCamera->mPosition += mCamera->mRight * deltaX;
+		mCamera->mPosition += mCamera->mUp * deltaY;
+	}
 
 	mCurrentX = xPos;
 	mCurrentY = yPos;
@@ -34,9 +40,9 @@ void TrackBallController::onKey(int key, int action, int mods)
 {
 }
 
-void TrackBallController::onScroll(double xOffset, double yOffset)
+void TrackBallController::onScroll(double offset)
 {
-	std::cout << "TrackBallController::onScroll" << xOffset << yOffset << std::endl;
+	mCamera->scale(mScaleSpeed * offset);
 }
 
 void TrackBallController::update()

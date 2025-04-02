@@ -10,6 +10,8 @@ public:
 
 	virtual glm::mat4 getProjectionMatrix() override;
 
+	void scale(float deltaScale) override;
+
 private:
 	float mFovy = 0.0f;
 	float mAspect = 0.0f;

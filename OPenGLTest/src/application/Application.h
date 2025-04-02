@@ -4,7 +4,7 @@ using ResizeCallback = void (*)(int width, int height);
 using KeyBoardCallback = void (*)(int key, int action, int mods);
 using MouseCallback = void(*)(int button, int action, int mods);
 using CursorCallback = void(*)(double xPos, double yPos);
-using ScrollCallback = void(*)(double xOffset, double yOffset);
+using ScrollCallback = void(*)(double offset);
 
 class GLFWwindow;
 

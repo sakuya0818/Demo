@@ -44,9 +44,9 @@ void OnCursor(double xPos, double yPos)
 	cameraControl->onCursor(xPos, yPos);
 }
 
-void OnScroll(double xOffset, double yOffset)
+void OnScroll(double offset)
 {
-	cameraControl->onScroll(xOffset, yOffset);
+	cameraControl->onScroll(offset);
 }
 
 // Ðý×ª±ä»¯

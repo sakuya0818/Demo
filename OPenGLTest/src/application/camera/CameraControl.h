@@ -13,13 +13,15 @@ public:
 	virtual void onMouse(int button, int action, double xPos, double yPos);
 	virtual void onCursor(double xPos, double yPos);
 	virtual void onKey(int key, int action, int mods);
-	virtual void onScroll(double xOffset, double yOffset);
+	virtual void onScroll(double offset);
 
 	virtual void update();
 
 	void setCamera(Camera* camera) { mCamera = camera; }
 
 	void setSensitivity(float s) { mSensitivity = s; }
+
+	void setScaleSpeed(float s) { mScaleSpeed = s; }
 
 protected:
 	bool mLeftMouseDown = false;
@@ -33,4 +35,6 @@ protected:
 	std::map<int, bool> mKeyMap;
 
 	Camera* mCamera = nullptr;
+
+	float mScaleSpeed = 0.2f;
 };

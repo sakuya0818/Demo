@@ -126,6 +126,6 @@ void Application::scrollCallback(GLFWwindow* window, double xOffset, double yOff
 	Application* self = (Application*)glfwGetWindowUserPointer(window);
 	if (self->mScrollCallback != nullptr)
 	{
-		self->mScrollCallback(xOffset, yOffset);
+		self->mScrollCallback(yOffset);
 	}
 }
