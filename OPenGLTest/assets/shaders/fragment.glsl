@@ -4,7 +4,6 @@ out vec4 FragColor;
 uniform sampler2D sampler;
 uniform sampler2D sampler1;
 
-in vec3 myColor;
 in vec2 uv;
 
 void main()

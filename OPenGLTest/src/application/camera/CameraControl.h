@@ -13,6 +13,7 @@ public:
 	virtual void onMouse(int button, int action, double xPos, double yPos);
 	virtual void onCursor(double xPos, double yPos);
 	virtual void onKey(int key, int action, int mods);
+	virtual void onScroll(double xOffset, double yOffset);
 
 	virtual void update();
 

@@ -10,7 +10,7 @@ public:
 	
 	glm::mat4 getViewMatrix();
 
-	virtual glm::mat4 getProjectionMatrix() = 0;;
+	virtual glm::mat4 getProjectionMatrix();
 
 public:
 	glm::vec3 mPosition = {0.0f, 0.0f, 1.0f};

@@ -8,8 +8,11 @@ class TrackBallController : public CameraControl
 public:
 	TrackBallController();
 	~TrackBallController();
-	void onMouse(int button, int action, double xPos, double yPos);
-	void onCursor(double xPos, double yPos);
-	void onKey(int key, int action, int mods);
-	void update();
+	void onCursor(double xPos, double yPos) override;
+	void onKey(int key, int action, int mods) override;
+	void onScroll(double xOffset, double yOffset) override;
+	void update() override;
+
+private:
+
 };

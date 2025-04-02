@@ -49,6 +49,11 @@ void CameraControl::onKey(int key, int action, int mods)
 	mKeyMap[key] = pressed;
 }
 
+void CameraControl::onScroll(double xOffset, double yOffset)
+{
+	
+}
+
 void CameraControl::update()
 {
 }
