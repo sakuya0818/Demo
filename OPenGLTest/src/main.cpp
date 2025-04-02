@@ -4,7 +4,7 @@
 #include "glframework/shader.h"
 #include "glframework/texture.h"
 #include "application/Application.h"
-#include "application/camera/Camera.h"
+#include "application/camera/PerspectiveCamera.h"
 #include "application/camera/TrackBallController.h"
 #include "glframework/Geometry.h"
 
@@ -18,7 +18,7 @@ glm::mat4 orthoMatrix(1.0);
 glm::mat4 perspectiveMatrix(1.0);
 Geometry* geometry = nullptr;
 
-Camera* camera = nullptr;
+PerspectiveCamera* camera = nullptr;
 TrackBallController* cameraControl = nullptr;
 
 void OnResize(int width, int height)
@@ -97,12 +97,12 @@ void prepareTexture()
 // 准备相机
 void prepareCamera()
 {
-	camera = new Camera();
+	camera = new PerspectiveCamera(60.0f, (float)Application::getInstance()->getWidth() / (float)Application::getInstance()->getHeight(), 0.1f, 1000.0f);
 	cameraControl = new TrackBallController();
 	cameraControl->setCamera(camera);
 
-	viewMatrix = glm::lookAt(glm::vec3(0.0f, 2.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	std::cout << "111111111111111:" << glm::to_string(viewMatrix) << std::endl;
+	//viewMatrix = glm::lookAt(glm::vec3(0.0f, 2.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//std::cout << "111111111111111:" << glm::to_string(viewMatrix) << std::endl;
 }
 
 void prepareOrtho()
@@ -133,9 +133,9 @@ void render()
 	shader->setInt("sampler", 0);
 	shader->setInt("sampler1", 1);
 
-	//shader->setMatrix4x4("transform", transform);
-	//shader->setMatrix4x4("view", viewMatrix);
-	//shader->setMatrix4x4("projection", perspectiveMatrix);
+	shader->setMatrix4x4("transform", transform);
+	shader->setMatrix4x4("view", camera->getViewMatrix());
+	shader->setMatrix4x4("projection", camera->getProjectionMatrix());
 
 	// 绑定当前的vao
 	glBindVertexArray(geometry->getVao());

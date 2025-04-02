@@ -8,11 +8,14 @@ class TrackBallController : public CameraControl
 public:
 	TrackBallController();
 	~TrackBallController();
+
 	void onCursor(double xPos, double yPos) override;
 	void onKey(int key, int action, int mods) override;
 	void onScroll(double xOffset, double yOffset) override;
 	void update() override;
 
 private:
+	void pitch(float angle);
 
+	void yaw(float angle);
 };

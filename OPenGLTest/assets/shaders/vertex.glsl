@@ -11,7 +11,7 @@ uniform mat4 projection;
 void main()
 {
 	vec4 position = vec4(aPos, 1.0);
-	//position = projection * view * transform * position;
+	position = projection * view * transform * position;
 	gl_Position = position;
 	//gl_Position = vec4(aPos, 1.0);
 	uv = aUV;
