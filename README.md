@@ -22,3 +22,9 @@ QTreeView使用示例，并可以模糊查询。
 
 ![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/TreeViewSearch.gif)
 
+5.OpenGLTest
+
+OpenGL的学习程序，使用glfw库和glad，数学库使用glm。可以创建一个盒体或球体，并加上贴图，鼠标移动任意视角旋转，鼠标滚轮放大缩小。
+
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/OpenGLTest.png)
+

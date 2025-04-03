@@ -78,7 +78,11 @@ void doTransform()
 // 准备SingleBuffer数据
 void prepareSingleBuffer()
 {
+	// 创建盒体
 	geometry = Geometry::createBox(1.0f);
+
+	// 创建球体
+	//geometry = Geometry::createSphere(1.0f);
 }
 
 // 准备Shader
