@@ -28,3 +28,9 @@ OpenGL的学习程序，使用glfw库和glad，数学库使用glm。可以创建
 
 ![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/OpenGLTest.png)
 
+6.GraphicsView
+
+QGraphicsView的示例程序，可以拖动其中的GraphicsItem。
+
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/GraphicsView.gif)
+
