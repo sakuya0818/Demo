@@ -34,3 +34,9 @@ QGraphicsView的示例程序，可以拖动其中的GraphicsItem。
 
 ![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/GraphicsView.gif)
 
+7.NavigationList
+
+重写QListView和其委托，实现一个导航栏的示例程序
+
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/NavigationList.gif)
+
