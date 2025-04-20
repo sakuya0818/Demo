@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>icon/connect.png</file>
+        <file>icon/heart.ico</file>
+        <file>icon/search.png</file>
+        <file>icon/clear.png</file>
+        <file>icon/send.png</file>
+    </qresource>
+</RCC>
