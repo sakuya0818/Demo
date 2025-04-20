@@ -48,3 +48,9 @@ QGraphicsView的示例程序，可以拖动其中的GraphicsItem。
 
 ![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SocketClient.png)
 
+9.SerialPort
+
+使用Qt实现的串口通信。
+
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SerialPort.png)
+
