@@ -1,6 +1,8 @@
 #include "serialport.h"
 #include "ui_serialport.h"
 
+#include <QButtonGroup>
+
 SerialPort::SerialPort(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SerialPort)

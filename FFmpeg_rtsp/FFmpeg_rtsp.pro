@@ -2,7 +2,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET =  ./FFmpeg_rtsp
+TEMPLATE = app
+TARGET = FFmpeg_rtsp
 
 CONFIG += c++11
 
