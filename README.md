@@ -40,3 +40,11 @@ QGraphicsView的示例程序，可以拖动其中的GraphicsItem。
 
 ![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/NavigationList.gif)
 
+8.QtSocket
+
+使用Qt的Socket编程，实现一个简单的服务端和客户端通信。
+
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SocketServer.png)
+
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SocketClient.png)
+
