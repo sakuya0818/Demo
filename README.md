@@ -44,13 +44,19 @@ QGraphicsView的示例程序，可以拖动其中的GraphicsItem。
 
 使用Qt的Socket编程，实现一个简单的服务端和客户端通信。
 
-![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SocketServer.png)
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SocketServer.gif)
 
-![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SocketClient.png)
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SocketClient.gif)
 
 9.SerialPort
 
 使用Qt实现的串口通信。
 
-![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SerialPort.png)
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/SerialPort.gif)
+
+10.TableViewDelegate
+
+QTableView的自定义委托示例程序，可以设置表格的显示样式，为指定的列或者行创建自定义绘制QCheckBox、QComboBox等，自定义右键插入或删除行。
+
+![image text](https://github.com/sakuya0818/Demo/blob/main/docs/img/TableViewDelegate.gif)
 
