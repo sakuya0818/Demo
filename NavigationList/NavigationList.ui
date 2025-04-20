@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NavigationList</class>
+ <widget class="QWidget" name="NavigationList">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>NavigationList</string>
+  </property>
+  <widget class="NavListView" name="listViewNavigation">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>200</width>
+     <height>982</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">NavDelegate
+{
+    background-color:&quot;#016BFF&quot;;
+}
+QListView#listViewNavigation
+{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color:&quot;#016BFF&quot;;
+}</string>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAsNeeded</enum>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>NavListView</class>
+   <extends>QListView</extends>
+   <header>NavListView.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
