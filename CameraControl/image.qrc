@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/stop_white.png</file>
+        <file>image/takePicWhite.png</file>
+    </qresource>
+</RCC>

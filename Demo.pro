@@ -9,4 +9,5 @@ SUBDIRS = FFmpeg_rtsp \
           QtSocket/myServer \
           QtSocket/myClient \
           SerialPort \
-          TableViewDelegate
+          TableViewDelegate \
+          CameraControl
